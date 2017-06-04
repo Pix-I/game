@@ -26,13 +26,35 @@
         <div class="pxl-game" ng-controller="gameController">
         <div class="clearfix main-area row">
             <div class="pixel-area column medium-6 small-12">
+                <div class="options-btn">
+                    <button class="button" onclick="displayOptions = !displayOptions">Options</button>
+                    <button class="button ng-hide" ng-hide="showOptions()" onclick="resetGame()">Reset</button>
+                    <button class="button ng-hide" ng-hide="showOptions()">Options</button>
+                </div>
+
+
                 <div class="pixel medium-2 small-4"></div>
+                <div class="pixel-info">
+                    Cores: 1
+                    Frequency: 1
+                </div>
+
+
+                <div class="messages">Hello world!</div>
+
                 <button class="button shine-btn" ng-click="doAction()">Shine</button>
-                <button class="button shine-btn" ng-click="addOneTest(saveObject.current)">Shine</button>
             </div>
+            <div class="building-area medium-6 small-12">
+                <button class="button shine-btn" ng-click="buildEnergy('windmill')">Build windmill</button>
+
+            </div>
+
+
             <div class="stats-area">
                 <div class="stats-text">
-                    {{saveObject.current}}
+                    Energy: {{saveObject.current}}
+                    <!--Consumption: {{getConsumption}}-->
+
                 </div>
             </div>
             <div class="controls column medium-6 small-12">
@@ -41,6 +63,12 @@
             </div>
         </div>
         </div>
+        <div class="bottom ">
+            <div class="spinner"></div>
+            <div class="wave-bottom"></div>
+            <div class="wave"></div>
+        </div>
+
     </div>
 
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
